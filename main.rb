@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require './score_card.rb'
+require './score_card'
 require 'pry'
 
 # defines how the player can interact on the CMI
@@ -30,9 +30,10 @@ end
 # defines the players score
 class Player < ScoreCard
   attr_accessor :score, :dice, :card
+
   def initialize(dice)
     @dice = dice
-    @card = ScoreCard.new
+    @card = ScoreCard.new(dice)
     @score = card.score
   end
 

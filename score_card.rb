@@ -4,7 +4,8 @@
 class ScoreCard
   attr_reader :dice, :score
 
-  def initialize
+  def initialize(dice)
+    @dice = dice
     @score = { ones: nil, twos: nil, threes: nil, fours: nil, fives: nil,
                sixes: nil, upper_bonus: nil, upper_total: nil, three_of_kind: nil,
                four_of_kind: nil, full_house: nil, sm_straight: nil,
@@ -13,7 +14,7 @@ class ScoreCard
   end
 
   def all_dice
-    @all_dice = (dice.current_roll + dice.held)
+    dice.current_roll + dice.held
   end
 
   def scored?(index)
